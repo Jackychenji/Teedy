@@ -24,7 +24,7 @@ pipeline {
             archiveArtifacts artifacts: '**/target/**/*.jar', fingerprint: true
             archiveArtifacts artifacts: '**/target/site/apidocs/**', fingerprint: true
             // 存档 Surefire 报告
-            archiveArtifacts artifacts: '**/target/site/surefire-reports/**', fingerprint: true
+            archiveArtifacts artifacts: '**/target/site/surefire/**', fingerprint: true
         }
     }
 }
