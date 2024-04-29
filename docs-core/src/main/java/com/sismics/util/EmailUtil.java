@@ -59,7 +59,7 @@ public class EmailUtil {
      * @return Template as string
      * @throws Exception e
      */
-    private static String getFormattedHtml(String templateName, Map<String, Object> paramRootMap, Locale locale) throws Exception {
+    static String getFormattedHtml(String templateName, Map<String, Object> paramRootMap, Locale locale) throws Exception {
         Configuration cfg = new Configuration(Configuration.VERSION_2_3_23);
         cfg.setClassForTemplateLoading(EmailUtil.class, "/email_template");
         cfg.setObjectWrapper(new DefaultObjectWrapperBuilder(Configuration.VERSION_2_3_23).build());
