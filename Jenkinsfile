@@ -16,6 +16,11 @@ pipeline {
                 sh 'mvn javadoc:javadoc'
             }
         }
+        stage('Run Tests') {
+            steps {
+                sh 'mvn test'
+            }
+        }
     }
     post {
         always {
@@ -23,9 +28,8 @@ pipeline {
             archiveArtifacts artifacts: '**/target/**/*.jar', fingerprint: true
             archiveArtifacts artifacts: '**/target/**/*.jar', fingerprint: true
             archiveArtifacts artifacts: '**/target/site/apidocs/**', fingerprint: true
-            script{
-                junit "**/target/surefire-reports/**"
-            }
+            // 存档 Surefire 报告
+            archiveArtifacts artifacts: '**/target/surefire-reports/**', fingerprint: true
         }
     }
 }
