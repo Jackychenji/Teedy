@@ -23,7 +23,9 @@ pipeline {
             archiveArtifacts artifacts: '**/target/**/*.jar', fingerprint: true
             archiveArtifacts artifacts: '**/target/**/*.jar', fingerprint: true
             archiveArtifacts artifacts: '**/target/site/apidocs/**', fingerprint: true
-            archiveArtifacts artifacts: '**/target/surefire-reports/**', fingerprint: true
+            script{
+                junit "**/target/surefire-reports/**"
+            }
         }
     }
 }
