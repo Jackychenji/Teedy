@@ -8,7 +8,7 @@ sh 'mvn -B -DskipTests clean package'
 }
 stage('K8s') {
 steps {
-sh 'kubectl set image deployments/hello-node hello-node-5dd5dcf7b4-j24sd=image-id'
+sh 'kubectl set image deployments/hello-node hello-node-5dd5dcf7b4-j24sd=sismics/docs:v1.11'
 }
 }
 }
